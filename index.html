@@ -1,0 +1,645 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1d3125" />
+  <title>Ana Luiza 15 anos - Floresta Encantada</title>
+  <meta name="description" content="Convite dos 15 anos da Ana Luiza: 21 de dezembro de 2026, às 19h30, no Pallace Hall, Campo Grande." />
+  <meta property="og:title" content="Ana Luiza 15 anos - Floresta Encantada" />
+  <meta property="og:description" content="21 de dezembro de 2026, às 19h30, no Pallace Hall, Campo Grande." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --forest: #1d3125;
+      --forest-2: #284231;
+      --moss: #4a6a54;
+      --leaf: #6f9079;
+      --sage: #a9bfae;
+      --rose: #b8466a;
+      --rose-2: #d06a8c;
+      --gold: #c3a15f;
+      --gold-2: #ead8a8;
+      --cream: #fbf7ef;
+      --paper: #fffdf9;
+      --ink: #2b3a2f;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --script: 'Great Vibes', 'Brush Script MT', cursive;
+      --sans: 'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(2px 2px at 12% 18%, rgba(234,216,168,.8), transparent),
+        radial-gradient(1.5px 1.5px at 82% 12%, rgba(234,216,168,.7), transparent),
+        radial-gradient(2px 2px at 70% 46%, rgba(234,216,168,.6), transparent),
+        radial-gradient(1.5px 1.5px at 8% 64%, rgba(234,216,168,.7), transparent),
+        radial-gradient(2px 2px at 92% 78%, rgba(234,216,168,.7), transparent),
+        radial-gradient(1.5px 1.5px at 30% 90%, rgba(234,216,168,.6), transparent),
+        radial-gradient(1200px 700px at 50% -10%, #3f5e49 0%, #1d3125 62%, #121f17 100%);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a, button { -webkit-tap-highlight-color: transparent; }
+    .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+    /* ========== CARTÃO ========== */
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      overflow: hidden;
+      text-align: center;
+      background:
+        radial-gradient(120% 50% at 50% 0%, #ffffff 0%, rgba(255,255,255,0) 70%),
+        radial-gradient(60% 30% at 100% 40%, rgba(243,212,220,.35), transparent),
+        radial-gradient(60% 30% at 0% 70%, rgba(169,191,174,.25), transparent),
+        var(--cream);
+      animation: appear .9s ease both;
+    }
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(195,161,95,.6);
+      border-radius: 18px;
+      pointer-events: none;
+      z-index: 6;
+    }
+    @keyframes appear { from { opacity: 0; } to { opacity: 1; } }
+
+    @media (min-width: 520px) {
+      body { padding: 32px 16px; }
+      .card { border-radius: 30px; box-shadow: 0 30px 80px -20px rgba(0,0,0,.6); }
+      .card::after { border-radius: 22px; }
+    }
+
+    /* ========== ENFEITES ========== */
+    .orn { position: absolute; height: auto; aspect-ratio: 2 / 1; overflow: visible; pointer-events: none; color: var(--leaf); z-index: 3; }
+    .orn--tl { top: 12px; left: 12px; width: 21%; transform: scaleY(-1); }
+    .orn--tr { top: 12px; right: 12px; width: 21%; transform: scale(-1, -1); }
+    .orn--bl { bottom: 12px; left: 12px; width: 32%; }
+    .orn--br { bottom: 12px; right: 12px; width: 32%; transform: scaleX(-1); }
+    .orn--hl { left: -13%; bottom: 0; width: 46%; }
+    .orn--hr { right: -13%; bottom: 0; width: 46%; transform: scaleX(-1); }
+
+    .spark { position: absolute; fill: var(--gold); pointer-events: none; }
+
+    /* ========== TOPO ========== */
+    .top-title {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      margin: 0 0 26px;
+      padding-top: 46px;
+      font: italic 500 1.2rem/1 var(--serif);
+      color: var(--moss);
+    }
+    .top-title svg { width: 13px; height: 13px; fill: var(--gold); }
+
+    /* ========== FOTO EM ARCO ========== */
+    .hero { position: relative; width: min(74%, 320px); margin: 0 auto 78px; }
+    .hero__ring {
+      position: absolute; pointer-events: none;
+      border-radius: 50% 50% 30px 30px / 40% 40% 30px 30px;
+    }
+    .hero__ring--a { inset: -10px; border: 1.5px solid var(--gold); }
+    .hero__ring--b { inset: -17px; border: 1px solid rgba(195,161,95,.45); border-radius: 50% 50% 36px 36px / 40% 40% 36px 36px; }
+
+    .arch {
+      position: relative; z-index: 1;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 50% 50% 22px 22px / 40% 40% 22px 22px;
+      background: linear-gradient(160deg, var(--moss), var(--forest));
+      box-shadow: 0 22px 44px -20px rgba(29,49,37,.65);
+    }
+    .arch img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: 50% 30%;
+      opacity: 0; transition: opacity 1.6s ease;
+    }
+    .arch img.is-active { opacity: 1; }
+    .arch::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(to top, rgba(29,49,37,.35), transparent 38%);
+    }
+
+    .medal {
+      position: absolute; z-index: 4;
+      left: 50%; bottom: -46px; transform: translateX(-50%);
+      width: 92px; height: 92px; border-radius: 50%;
+      display: grid; place-content: center;
+      background: radial-gradient(circle at 30% 22%, #fff, var(--cream));
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 0 5px var(--cream), 0 0 0 6.5px rgba(195,161,95,.65), 0 14px 26px -10px rgba(29,49,37,.55);
+    }
+    .medal b { display: block; font: 600 2.6rem/.9 var(--serif); color: var(--forest); }
+    .medal span { display: block; margin-top: 2px; font: 400 1.35rem/1 var(--script); color: var(--rose); }
+
+    /* ========== NOME ========== */
+    .intro { padding: 0 32px; }
+    .intro__lead { margin: 0; font: italic 400 1.2rem/1.3 var(--serif); color: var(--moss); }
+    .name {
+      margin: .05em 0 .1em;
+      font: 400 clamp(3.8rem, 21vw, 6rem)/1.15 var(--script);
+      color: var(--forest);
+    }
+    .quote {
+      max-width: 29ch; margin: 0 auto;
+      font: italic 500 1.32rem/1.5 var(--serif);
+      color: #3a4c3f;
+    }
+
+    .divider { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 26px auto 8px; width: 72%; }
+    .divider i { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--gold)); }
+    .divider i:last-child { background: linear-gradient(to left, transparent, var(--gold)); }
+    .divider svg { width: 16px; height: 16px; fill: var(--gold); }
+
+    /* ========== CONTAGEM ========== */
+    .count { padding: 14px 24px 0; }
+    .count__title { margin: 0 0 12px; font: 400 2.3rem/1.1 var(--script); color: var(--rose); }
+    .count__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; max-width: 360px; margin: 0 auto; }
+    .count__item {
+      padding: 12px 4px 10px;
+      background: var(--paper);
+      border: 1px solid rgba(195,161,95,.55);
+      border-radius: 16px;
+      box-shadow: 0 8px 18px -14px rgba(29,49,37,.5);
+    }
+    .count__num { display: block; font: 600 2rem/1 var(--serif); color: var(--forest); font-variant-numeric: tabular-nums; }
+    .count__lbl { display: block; margin-top: 4px; font: 400 .78rem/1 var(--sans); color: var(--moss); }
+    .count__grid[hidden] { display: none; }
+
+    /* ========== DATA E LOCAL ========== */
+    .band {
+      position: relative;
+      margin: 30px 22px 0;
+      padding: 30px 10px 28px;
+      border-radius: 26px;
+      color: var(--cream);
+      background: linear-gradient(160deg, var(--forest-2), var(--forest));
+      box-shadow: 0 0 0 1px var(--gold), inset 0 0 0 5px var(--forest), inset 0 0 0 6px rgba(195,161,95,.45), 0 22px 40px -24px rgba(29,49,37,.8);
+    }
+    .band__grid { display: grid; grid-template-columns: 1fr 1px 1fr; align-items: center; }
+    .band__sep { align-self: stretch; background: linear-gradient(to bottom, transparent, rgba(195,161,95,.7), transparent); }
+    .band__col { padding: 0 8px; }
+    .band__ico { width: 24px; height: 24px; margin-bottom: 6px; stroke: var(--gold-2); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .band__lbl { display: block; margin-bottom: 4px; font: 400 .85rem/1 var(--sans); color: var(--sage); letter-spacing: .08em; }
+    .band__day { display: block; font: 600 4.2rem/.95 var(--serif); color: var(--gold-2); }
+    .band__month { display: block; margin-top: 4px; font: italic 500 1.4rem/1.1 var(--serif); }
+    .band__year { display: block; margin-top: 2px; font: 400 .9rem/1 var(--sans); color: var(--sage); letter-spacing: .12em; }
+    .band__time { display: block; margin-top: 8px; font: 600 1.25rem/1 var(--serif); color: var(--gold-2); }
+    .band__place { display: block; font: 600 1.65rem/1.1 var(--serif); }
+    .band__city { display: block; margin-top: 4px; font: italic 500 1.3rem/1.1 var(--serif); color: var(--gold-2); }
+
+    /* ========== BOTÕES ========== */
+    .actions { display: grid; gap: 12px; padding: 26px 24px 0; }
+    .actions__row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      min-height: 54px; padding: 0 14px;
+      border: 1.5px solid transparent; border-radius: 999px;
+      font: 500 1rem/1 var(--sans);
+      text-decoration: none; cursor: pointer;
+      transition: transform .2s ease, filter .2s ease, background-color .2s ease;
+    }
+    .btn svg { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0) scale(.99); }
+    .btn--rose { color: #fff; background: linear-gradient(135deg, var(--rose-2), var(--rose)); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 14px 26px -14px rgba(184,70,106,.8); font-size: 1.05rem; }
+    .btn--forest { color: var(--cream); background: var(--forest); border-color: var(--gold); box-shadow: 0 14px 26px -16px rgba(29,49,37,.9); }
+    .btn--ghost { color: #7a5f2a; background: rgba(255,255,255,.6); border-color: var(--gold); }
+    .btn--ghost:hover { background: #fff; }
+    .actions__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 10px; }
+    .link-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 12px; background: none; border: 0; cursor: pointer;
+      font: 400 .92rem/1 var(--sans); color: var(--moss); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(74,106,84,.4);
+    }
+    .link-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ========== RODAPÉ ========== */
+    .footer { position: relative; padding: 38px 28px 74px; }
+    .footer__script { margin: 0; font: 400 2.6rem/1.1 var(--script); color: var(--forest); }
+    .footer__text { max-width: 26ch; margin: 6px auto 0; font: italic 500 1.2rem/1.4 var(--serif); color: var(--moss); }
+
+    /* ========== MODAL DE PRESENTES ========== */
+    .sheet {
+      position: fixed; inset: 0; z-index: 50;
+      display: grid; place-items: end center;
+      background: rgba(9,18,11,.78);
+      -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+      opacity: 0; visibility: hidden;
+      transition: opacity .35s ease, visibility .35s ease;
+    }
+    .sheet.is-open { opacity: 1; visibility: visible; }
+    .sheet__panel {
+      position: relative; overflow: hidden auto;
+      width: 100%; max-width: 480px; max-height: 94vh; max-height: 94dvh;
+      padding: 54px 20px calc(26px + env(safe-area-inset-bottom, 0px));
+      text-align: center; color: var(--cream);
+      border: 1px solid rgba(195,161,95,.6); border-bottom: 0;
+      border-radius: 30px 30px 0 0;
+      background:
+        radial-gradient(70% 40% at 50% 30%, rgba(111,144,121,.28), transparent),
+        linear-gradient(170deg, #2a4533 0%, #1a2b20 55%, #111d15 100%);
+      transform: translateY(40px);
+      transition: transform .45s cubic-bezier(.2,.8,.2,1);
+    }
+    .sheet.is-open .sheet__panel { transform: translateY(0); }
+    @media (min-width: 640px) {
+      .sheet { place-items: center; padding: 24px; }
+      .sheet__panel { border-bottom: 1px solid rgba(195,161,95,.6); border-radius: 30px; }
+    }
+    .sheet__panel .orn { color: rgba(169,191,174,.5); --bloom: #e3a1b4; }
+    .sheet__close {
+      position: absolute; top: 14px; right: 14px; z-index: 5;
+      width: 42px; height: 42px; display: grid; place-items: center;
+      color: var(--gold-2); background: rgba(255,255,255,.06);
+      border: 1px solid rgba(195,161,95,.5); border-radius: 50%; cursor: pointer;
+    }
+    .sheet__close svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+    .sheet__title { position: relative; z-index: 2; margin: 0; font: 400 3rem/1.1 var(--script); color: var(--cream); }
+    .sheet__sub { position: relative; z-index: 2; max-width: 28ch; margin: 6px auto 24px; font: italic 500 1.15rem/1.4 var(--serif); color: var(--sage); }
+
+    .gifts { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .gift {
+      padding: 20px 10px 18px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(195,161,95,.35);
+      border-radius: 22px;
+    }
+    .gift__ico {
+      width: 56px; height: 56px; margin: 0 auto 12px;
+      display: grid; place-items: center; border-radius: 50%;
+      background: radial-gradient(circle at 30% 25%, rgba(234,216,168,.22), rgba(234,216,168,.04));
+      border: 1px solid var(--gold);
+      box-shadow: 0 0 0 4px rgba(195,161,95,.12);
+    }
+    .gift__ico svg { width: 26px; height: 26px; fill: none; stroke: var(--gold-2); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .gift h3 { margin: 0; font: 600 1.4rem/1.1 var(--serif); color: var(--cream); }
+    .gift p { margin: 6px 0 0; font: 300 .86rem/1.35 var(--sans); color: var(--sage); }
+
+    .sheet__note { position: relative; z-index: 2; margin: 22px auto 16px; max-width: 30ch; font: italic 500 1.15rem/1.4 var(--serif); color: var(--gold-2); }
+    .sheet__back { position: relative; z-index: 2; width: 100%; color: var(--forest); background: linear-gradient(135deg, var(--gold-2), var(--gold)); border: 0; }
+
+    @media (max-width: 359px) {
+      .gifts { grid-template-columns: 1fr; }
+      .band__day { font-size: 3.4rem; }
+      .band__place { font-size: 1.4rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Biblioteca de enfeites (SVG reutilizável) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <path id="leaf" d="M0 0C5-9 17-10 26 0 17 10 5 9 0 0Z" />
+
+      <symbol id="sparkle" viewBox="0 0 24 24"><path d="M12 1l2 7.5L21.5 11 14 13.5 12 21l-2-7.5L2.5 11 10 8.5z" /></symbol>
+
+      <symbol id="bloom" viewBox="-12 -12 24 24">
+        <g style="fill:var(--bloom,#e9a3b6)" stroke="#fff" stroke-opacity=".55" stroke-width=".6">
+          <circle cx="0" cy="-6.5" r="5" /><circle cx="6.18" cy="-2" r="5" /><circle cx="3.82" cy="5.26" r="5" />
+          <circle cx="-3.82" cy="5.26" r="5" /><circle cx="-6.18" cy="-2" r="5" />
+        </g>
+        <circle r="3" fill="#c3a15f" />
+      </symbol>
+
+      <symbol id="branch" viewBox="0 0 200 100">
+        <path d="M4 94C52 90 112 62 196 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        <g fill="currentColor">
+          <use href="#leaf" transform="translate(22 91) rotate(-62)" />
+          <use href="#leaf" transform="translate(34 90) rotate(38)" />
+          <use href="#leaf" transform="translate(58 83) rotate(-60)" />
+          <use href="#leaf" transform="translate(72 78) rotate(36)" />
+          <use href="#leaf" transform="translate(96 66) rotate(-58)" />
+          <use href="#leaf" transform="translate(110 59) rotate(34)" />
+          <use href="#leaf" transform="translate(134 46) rotate(-56)" />
+          <use href="#leaf" transform="translate(148 38) rotate(32)" />
+          <use href="#leaf" transform="translate(172 24) rotate(-54)" />
+          <use href="#leaf" transform="translate(190 14) rotate(-20)" />
+        </g>
+      </symbol>
+
+      <symbol id="garland" viewBox="0 0 200 100">
+        <use href="#branch" width="200" height="100" />
+        <use href="#bloom" x="42" y="73" width="18" height="18" />
+        <use href="#bloom" x="74" y="58" width="24" height="24" />
+        <use href="#bloom" x="127" y="35" width="20" height="20" />
+        <use href="#bloom" x="182" y="8" width="16" height="16" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <main class="card" id="invite">
+
+    <!-- Enfeites de canto -->
+    <svg class="orn orn--tl" viewBox="0 0 200 100" aria-hidden="true"><use href="#garland" width="200" height="100" /></svg>
+    <svg class="orn orn--tr" viewBox="0 0 200 100" aria-hidden="true"><use href="#garland" width="200" height="100" /></svg>
+
+    <!-- Tema -->
+    <p class="top-title">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle" /></svg>
+      Floresta Encantada
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle" /></svg>
+    </p>
+
+    <!-- Foto em arco -->
+    <div class="hero">
+      <span class="hero__ring hero__ring--b"></span>
+      <span class="hero__ring hero__ring--a"></span>
+
+      <div class="arch" id="slider">
+        <img src="Manu 15 anos_files/WhatsApp Image 2026-11-03 at 16.52.04.jpeg" alt="Ana Luiza" class="is-active" decoding="async" />
+        <img src="Manu 15 anos_files/WhatsApp Image 2026-11-03 at 16.52.03.jpeg" alt="Ana Luiza" loading="lazy" decoding="async" />
+        <img src="Manu 15 anos_files/1c35b2b8f2c3c8c29ff7e36eacc1eb66.jpg" alt="Ana Luiza" loading="lazy" decoding="async" />
+      </div>
+
+      <svg class="orn orn--hl" viewBox="0 0 200 100" aria-hidden="true"><use href="#garland" width="200" height="100" /></svg>
+      <svg class="orn orn--hr" viewBox="0 0 200 100" aria-hidden="true"><use href="#garland" width="200" height="100" /></svg>
+
+      <svg class="spark" style="left:-10%;top:4%;width:16px;height:16px" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle" /></svg>
+      <svg class="spark" style="right:-9%;top:16%;width:11px;height:11px" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle" /></svg>
+      <svg class="spark" style="right:-14%;top:-2%;width:20px;height:20px" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle" /></svg>
+
+      <div class="medal" aria-label="15 anos"><div><b>15</b><span>anos</span></div></div>
+    </div>
+
+    <!-- Nome e mensagem -->
+    <section class="intro">
+      <p class="intro__lead">Venha celebrar os 15 anos de</p>
+      <h1 class="name">Ana Luiza</h1>
+      <p class="quote">“A única forma de multiplicar a felicidade é dividindo-a com alguém. Por isso sua presença é tão especial neste dia!”</p>
+      <div class="divider" aria-hidden="true"><i></i><svg viewBox="0 0 24 24"><use href="#sparkle" /></svg><i></i></div>
+    </section>
+
+    <!-- Contagem regressiva -->
+    <section class="count" aria-label="Contagem regressiva">
+      <h2 class="count__title">Está próximo!</h2>
+      <div class="count__grid" id="countGrid">
+        <div class="count__item"><span class="count__num" id="cd-d">00</span><span class="count__lbl">dias</span></div>
+        <div class="count__item"><span class="count__num" id="cd-h">00</span><span class="count__lbl">horas</span></div>
+        <div class="count__item"><span class="count__num" id="cd-m">00</span><span class="count__lbl">minutos</span></div>
+        <div class="count__item"><span class="count__num" id="cd-s">00</span><span class="count__lbl">segundos</span></div>
+      </div>
+    </section>
+
+    <!-- Data e local -->
+    <section class="band" aria-label="Data e local">
+      <div class="band__grid">
+        <div class="band__col">
+          <svg class="band__ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>
+          <span class="band__lbl">Data</span>
+          <span class="band__day">21</span>
+          <span class="band__month">de dezembro</span>
+          <span class="band__year">2026</span>
+          <span class="band__time">às 19h30</span>
+        </div>
+        <div class="band__sep" aria-hidden="true"></div>
+        <div class="band__col">
+          <svg class="band__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z" /><circle cx="12" cy="10" r="2.3" /></svg>
+          <span class="band__lbl">Local</span>
+          <span class="band__place">Pallace Hall</span>
+          <span class="band__city">Campo Grande</span>
+        </div>
+      </div>
+      <svg class="spark" style="left:14px;top:12px;width:12px;height:12px" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle" /></svg>
+      <svg class="spark" style="right:14px;bottom:12px;width:12px;height:12px" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle" /></svg>
+    </section>
+
+    <!-- Ações -->
+    <nav class="actions" aria-label="Ações do convite">
+      <a class="btn btn--rose" href="https://go.forms.app/pedrocax7/rsvp-15-anos-ana-luiza" target="_blank" rel="noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3.5 7l8.5 6.5L20.5 7" /></svg>
+        Confirmar presença
+      </a>
+      <div class="actions__row">
+        <a class="btn btn--forest" href="https://maps.app.goo.gl/rnoXQ2RAook1xgtM6" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z" /><circle cx="12" cy="10" r="2.3" /></svg>
+          Localização
+        </a>
+        <button type="button" class="btn btn--ghost" id="openGifts" aria-haspopup="dialog">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="9" width="17" height="4" rx="1" /><path d="M5 13v7h14v-7M12 9v11M12 9c-2.5 0-4.5-1-4.5-2.8S9.5 4 12 9zm0 0c2.5 0 4.5-1 4.5-2.8S14.5 4 12 9z" /></svg>
+          Presentes
+        </button>
+      </div>
+      <div class="actions__links">
+        <button type="button" class="link-btn" id="addCal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5" /><path d="M3.5 10h17M8 3v4M16 3v4M12 13v4M10 15h4" /></svg>
+          Adicionar à agenda
+        </button>
+        <button type="button" class="link-btn" id="shareInvite">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.5" /><circle cx="18" cy="6" r="2.5" /><circle cx="18" cy="18" r="2.5" /><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6" /></svg>
+          <span id="shareLabel">Compartilhar convite</span>
+        </button>
+      </div>
+      <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+    </nav>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+      <div class="divider" aria-hidden="true" style="margin-top:0"><i></i><svg viewBox="0 0 24 24"><use href="#sparkle" /></svg><i></i></div>
+      <p class="footer__script">Te espero lá!</p>
+      <p class="footer__text">Vai ser uma noite mágica na Floresta Encantada.</p>
+      <svg class="orn orn--bl" viewBox="0 0 200 100" aria-hidden="true"><use href="#garland" width="200" height="100" /></svg>
+      <svg class="orn orn--br" viewBox="0 0 200 100" aria-hidden="true"><use href="#garland" width="200" height="100" /></svg>
+    </footer>
+  </main>
+
+  <!-- ==========================================
+       LISTA DE PRESENTES
+  =========================================== -->
+  <div class="sheet" id="giftsModal" role="dialog" aria-modal="true" aria-labelledby="giftsTitle" aria-hidden="true">
+    <div class="sheet__panel" id="sheetPanel">
+
+      <svg class="orn orn--tl" style="top:8px;left:8px" viewBox="0 0 200 100" aria-hidden="true"><use href="#garland" width="200" height="100" /></svg>
+      <svg class="spark" style="left:44%;top:14px;width:12px;height:12px" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle" /></svg>
+      <svg class="spark" style="right:70px;top:46px;width:9px;height:9px" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle" /></svg>
+      <svg class="spark" style="left:22px;top:46%;width:10px;height:10px" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle" /></svg>
+      <svg class="spark" style="right:20px;top:58%;width:13px;height:13px" viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle" /></svg>
+
+      <button type="button" class="sheet__close" id="closeGifts" aria-label="Fechar lista de presentes">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+      </button>
+
+      <h2 class="sheet__title" id="giftsTitle">Presentes</h2>
+      <p class="sheet__sub">Sugestões feitas com carinho para quem quer acertar</p>
+
+      <ul class="gifts">
+        <li class="gift">
+          <div class="gift__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 21v-7h7v7zM9.5 14V9.5h5V14M10 9.5l1.2-5.5h1.6l1.2 5.5" /></svg></div>
+          <h3>Maquiagem</h3>
+          <p>Batons, paletas e skincare</p>
+        </li>
+        <li class="gift">
+          <div class="gift__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8V6.8a2 2 0 10-2-2M12 8L3.6 14.6a1.5 1.5 0 00.9 2.7h15a1.5 1.5 0 00.9-2.7L12 8z" /></svg></div>
+          <h3>Roupas</h3>
+          <p>Looks com o estilo dela</p>
+        </li>
+        <li class="gift">
+          <div class="gift__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12.5" rx="2.5" /><path d="M3 10.5h18M7 15h4" /></svg></div>
+          <h3>Vale-presente</h3>
+          <p>Ela escolhe o que mais ama</p>
+        </li>
+        <li class="gift">
+          <div class="gift__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.4 8.3 5 6 5H4v13h2c2.3 0 4.5.4 6 1.5 1.5-1.1 3.7-1.5 6-1.5h2V5h-2c-2.3 0-4.5.4-6 1.5zM12 6.5v13" /></svg></div>
+          <h3>Acessórios</h3>
+          <p>Joias, bolsos e outros detalhes</p>
+        </li>
+      </ul>
+
+      <p class="sheet__note">O maior presente é ter você com a gente.</p>
+      <button type="button" class="btn sheet__back" id="backGifts">Voltar ao convite</button>
+
+      <svg class="orn orn--br" style="bottom:-6px;right:-6px;opacity:.7" viewBox="0 0 200 100" aria-hidden="true"><use href="#garland" width="200" height="100" /></svg>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* ---------- Carrossel de fotos ---------- */
+      var slides = Array.prototype.slice.call(document.querySelectorAll('#slider img'));
+      var current = 0;
+      function next() {
+        if (slides.length < 2) return;
+        slides[current].classList.remove('is-active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('is-active');
+      }
+      // Foto que não carregar sai do carrossel, sem deixar moldura vazia
+      function dropSlide(img) {
+        var wasActive = img.classList.contains('is-active');
+        slides = slides.filter(function (i) { return i !== img; });
+        img.remove();
+        current = 0;
+        if (wasActive && slides[0]) slides[0].classList.add('is-active');
+      }
+      slides.slice().forEach(function (img) {
+        if (img.complete && img.naturalWidth === 0) dropSlide(img);
+        else img.addEventListener('error', function () { dropSlide(img); });
+      });
+      if (!reduce) setInterval(next, 3000);
+
+      /* ---------- Contagem regressiva ---------- */
+      var target = new Date('2026-12-21T19:30:00-03:00').getTime();
+      var grid = document.getElementById('countGrid');
+      var countTitle = document.querySelector('.count__title');
+      function pad(n) { return n < 10 ? '0' + n : String(n); }
+      function tick() {
+        var diff = target - Date.now();
+        if (diff <= 0) {
+          countTitle.textContent = 'Chegou o grande dia!';
+          grid.hidden = true;
+          clearInterval(timer);
+          return;
+        }
+        var today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Sao_Paulo' });
+        countTitle.textContent = today === '2026-12-21' ? 'É hoje!' : 'Está próximo!';
+        var s = Math.floor(diff / 1000);
+        document.getElementById('cd-d').textContent = Math.floor(s / 86400);
+        document.getElementById('cd-h').textContent = pad(Math.floor(s % 86400 / 3600));
+        document.getElementById('cd-m').textContent = pad(Math.floor(s % 3600 / 60));
+        document.getElementById('cd-s').textContent = pad(s % 60);
+      }
+      var timer = setInterval(tick, 1000);
+      tick();
+
+      /* ---------- Modal de presentes ---------- */
+      var modal = document.getElementById('giftsModal');
+      var invite = document.getElementById('invite');
+      var opener = document.getElementById('openGifts');
+      var closeBtn = document.getElementById('closeGifts');
+      var backBtn = document.getElementById('backGifts');
+
+      function openModal() {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        invite.inert = true;
+        document.body.style.overflow = 'hidden';
+        setTimeout(function () { closeBtn.focus(); }, 50);
+      }
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        invite.inert = false;
+        document.body.style.overflow = '';
+        opener.focus();
+      }
+      opener.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+      backBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+      document.addEventListener('keydown', function (e) {
+        if (!modal.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'Tab') {
+          e.preventDefault();
+          (document.activeElement === closeBtn ? backBtn : closeBtn).focus();
+        }
+      });
+
+      /* ---------- Adicionar à agenda (.ics, dia inteiro) ---------- */
+      document.getElementById('addCal').addEventListener('click', function () {
+        var ics = [
+          'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Convite Ana Luiza//PT',
+          'BEGIN:VEVENT', 'UID:ana-luiza-15-anos@convite',
+          'DTSTAMP:' + new Date().toISOString().replace(/[-:]|\.\d{3}/g, ''),
+          'DTSTART;TZID=America/Sao_Paulo:20261221T193000',
+          'DTEND;TZID=America/Sao_Paulo:20261221T233000',
+          'SUMMARY:15 anos da Ana Luiza - Floresta Encantada',
+          'LOCATION:Pallace Hall\\, Campo Grande',
+          'END:VEVENT', 'END:VCALENDAR'
+        ].join('\r\n');
+        var url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
+        var a = document.createElement('a');
+        a.href = url; a.download = 'ana-luiza-15-anos.ics';
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      });
+
+      /* ---------- Compartilhar convite ---------- */
+      var shareLabel = document.getElementById('shareLabel');
+      var status = document.getElementById('status');
+      function notify(text) {
+        shareLabel.textContent = text;
+        status.textContent = text;
+        setTimeout(function () { shareLabel.textContent = 'Compartilhar convite'; status.textContent = ''; }, 2500);
+      }
+      document.getElementById('shareInvite').addEventListener('click', function () {
+        var data = { title: 'Ana Luiza 15 anos - Floresta Encantada', text: 'Você é nosso convidado para os 15 anos da Ana Luiza!', url: location.href };
+        if (navigator.share) {
+          navigator.share(data).catch(function () {}); // ignora se a pessoa cancelar
+        } else if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(data.url).then(function () { notify('Link copiado!'); }, function () { window.prompt('Copie o link do convite:', data.url); });
+        } else {
+          window.prompt('Copie o link do convite:', data.url);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
