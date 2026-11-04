@@ -447,12 +447,7 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5" /><path d="M3.5 10h17M8 3v4M16 3v4M12 13v4M10 15h4" /></svg>
           Adicionar à agenda
         </button>
-        <button type="button" class="link-btn" id="shareInvite">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.5" /><circle cx="18" cy="6" r="2.5" /><circle cx="18" cy="18" r="2.5" /><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6" /></svg>
-          <span id="shareLabel">Compartilhar convite</span>
-        </button>
       </div>
-      <p class="sr-only" id="status" role="status" aria-live="polite"></p>
     </nav>
 
     <!-- Rodapé -->
@@ -628,24 +623,6 @@
         setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
       });
 
-      /* ---------- Compartilhar convite ---------- */
-      var shareLabel = document.getElementById('shareLabel');
-      var status = document.getElementById('status');
-      function notify(text) {
-        shareLabel.textContent = text;
-        status.textContent = text;
-        setTimeout(function () { shareLabel.textContent = 'Compartilhar convite'; status.textContent = ''; }, 2500);
-      }
-      document.getElementById('shareInvite').addEventListener('click', function () {
-        var data = { title: 'Ana Luiza 15 anos - Floresta Encantada', text: 'Você é nosso convidado para os 15 anos da Ana Luiza!', url: location.href };
-        if (navigator.share) {
-          navigator.share(data).catch(function () {}); // ignora se a pessoa cancelar
-        } else if (navigator.clipboard && window.isSecureContext) {
-          navigator.clipboard.writeText(data.url).then(function () { notify('Link copiado!'); }, function () { window.prompt('Copie o link do convite:', data.url); });
-        } else {
-          window.prompt('Copie o link do convite:', data.url);
-        }
-      });
     })();
   </script>
 </body>
