@@ -305,9 +305,6 @@
       .band__place { font-size: 1.4rem; }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
-    }
   </style>
 </head>
 <body>
@@ -519,30 +516,40 @@
 
   <script>
     (function () {
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
       /* ---------- Carrossel de fotos ---------- */
       var slides = Array.prototype.slice.call(document.querySelectorAll('#slider img'));
       var current = 0;
+      function syncSlides() {
+        slides.forEach(function (img, index) {
+          img.style.transition = 'opacity 1.6s ease';
+          img.classList.toggle('is-active', index === current);
+          img.style.opacity = index === current ? '1' : '0';
+        });
+      }
       function next() {
         if (slides.length < 2) return;
-        slides[current].classList.remove('is-active');
         current = (current + 1) % slides.length;
-        slides[current].classList.add('is-active');
+        syncSlides();
       }
       // Foto que não carregar sai do carrossel, sem deixar moldura vazia
       function dropSlide(img) {
-        var wasActive = img.classList.contains('is-active');
-        slides = slides.filter(function (i) { return i !== img; });
+        var index = slides.indexOf(img);
+        if (index === -1) return;
+        slides.splice(index, 1);
         img.remove();
-        current = 0;
-        if (wasActive && slides[0]) slides[0].classList.add('is-active');
+        if (!slides.length) return;
+        if (current >= slides.length) current = 0;
+        if (index === 0 && current === 0) {
+          current = 0;
+        }
+        syncSlides();
       }
       slides.slice().forEach(function (img) {
         if (img.complete && img.naturalWidth === 0) dropSlide(img);
         else img.addEventListener('error', function () { dropSlide(img); });
       });
-      if (!reduce) setInterval(next, 3000);
+      syncSlides();
+      if (slides.length > 1) setInterval(next, 2500);
 
       /* ---------- Contagem regressiva ---------- */
       var target = new Date('2026-12-21T19:30:00-03:00').getTime();
